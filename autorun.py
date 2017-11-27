@@ -1,4 +1,4 @@
-"""Набор классов и функций для установки/удаления автозапуска
+"""Набор классов и функций для добавления/удаления автозапуска
 	любого файла в системах Windows OS."""
 	
 import winreg as wr
@@ -6,7 +6,7 @@ import win32api #Необходим для функции get_path()
 import json
 	
 class AutoRun():
-	"""Основной объект установки/удаления автозапуска."""
+	"""Основной объект добавления/удаления автозапуска."""
 	
 	def __init__(self, name, path):
 		
@@ -22,7 +22,7 @@ class AutoRun():
 		"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run")
 
 	def set_autorun(self):
-		"""Устанавливает автозапуск файла."""
+		"""Добавляет автозапуск файла."""
 		
 		#Создаёт файл в реестре автозапуска.
 		wr.SetValueEx(self.key, self.name, 0, wr.REG_SZ, self.path)
